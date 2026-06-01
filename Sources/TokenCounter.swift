@@ -42,6 +42,18 @@ actor TokenCounter {
         model.isAvailable
     }
 
+    /// Warm up the model so the first real request does not pay the
+    /// cold-start cost. Returns whether prewarming was attempted (i.e. the
+    /// model was available). A no-op when the model is unavailable, so an
+    /// unavailable model never crashes startup.
+    @discardableResult
+    func prewarm() -> Bool {
+        guard model.isAvailable else { return false }
+        let session = LanguageModelSession(model: model)
+        session.prewarm()
+        return true
+    }
+
     /// Current availability as our pure ApfelCore enum. Adapts Apple's
     /// `SystemLanguageModel.Availability` into our `ModelAvailability`
     /// so the rest of apfel can reason about the specific unavailable
