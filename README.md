@@ -353,6 +353,7 @@ Guides to use apfel from [Python](docs/guides/python.md), [Node.js](docs/guides/
 - [docs/demos.md](docs/demos.md) - longer walkthroughs of the shell demos
 - [docs/EXAMPLES.md](docs/EXAMPLES.md) - 50+ real prompts with unedited output
 - [docs/swift-library.md](docs/swift-library.md) - `ApfelCore` Swift Package for downstream developers
+- [docs/coreai-impact.md](docs/coreai-impact.md) - why apfel runs on FoundationModels, not Apple's new Core AI (the Core ML successor)
 
 ## Architecture
 
